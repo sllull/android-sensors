@@ -20,7 +20,7 @@ public class Sensors extends Activity implements SensorEventListener {
     public final void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        textValues = findViewById(R.id.value_text);
+        textValues = findViewById(R.id.button);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
     }

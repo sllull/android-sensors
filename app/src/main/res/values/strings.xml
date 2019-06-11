@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">lightSensorTest</string>
+    <string name="StartSensor">Button</string>
 </resources>
