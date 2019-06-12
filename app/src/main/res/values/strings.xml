@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">lightSensorTest</string>
     <string name="StartSensor">Button</string>
+    <string name="StartButton">Sensor start</string>
+    <string name="titol_sensor">Titol Sensor</string>
+    <string name="valor_sensor">valor_sensor</string>
 </resources>

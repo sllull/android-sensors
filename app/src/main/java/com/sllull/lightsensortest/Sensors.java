@@ -11,19 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-public class Sensors extends Activity implements SensorEventListener {
+import static android.support.v4.content.ContextCompat.getSystemService;
+
+public class Sensors implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor mLight;
-    private TextView textValues;
+    private String sensorValue;
 
-    @Override
-    public final void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        textValues = findViewById(R.id.button);
+    public Sensors (){
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
     }
+
 
     @Override
     public final void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -35,21 +34,8 @@ public class Sensors extends Activity implements SensorEventListener {
         // The light sensor returns a single value.
         // Many sensors return 3 values, one for each axis.
         float lux = event.values[0];
-        String oldvalues = textValues.getText().toString();
-        textValues.setText(lux + "\n" + oldvalues);
+        sensorValue = lux;
         // Do something with this sensor value.
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        sensorManager.registerListener(this, mLight, SensorManager.SENSOR_DELAY_NORMAL);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        sensorManager.unregisterListener(this);
     }
 
 }
