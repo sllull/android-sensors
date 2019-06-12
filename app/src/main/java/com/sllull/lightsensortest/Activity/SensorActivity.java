@@ -1,11 +1,13 @@
-package com.sllull.lightsensortest;
+package com.sllull.lightsensortest.Activity;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+
+import com.sllull.lightsensortest.Fragments.SensorFragment;
+import com.sllull.lightsensortest.R;
 
 class SensorActivity extends AppCompatActivity {
 
@@ -25,5 +27,7 @@ class SensorActivity extends AppCompatActivity {
             ft.add(R.id.sensor_list,sf);
             ft.commit();
         }
+
+       // new lskdfslkjf(getSys)
     }
 }

@@ -1,4 +1,4 @@
-package com.sllull.lightsensortest;
+package com.sllull.lightsensortest.Domain;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,16 +11,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.TextView;
 
-import static android.support.v4.content.ContextCompat.getSystemService;
 
 public class Sensors implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor mLight;
     private String sensorValue;
+    private String sensorTitle;
 
-    public Sensors (){
-        sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mLight = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
+    public Sensors (int type, SensorManager sensorManager){
+        //type = Sensor.TYPE_LIGHT
+        this.sensorTitle = " "+type;
+        this.sensorManager = sensorManager;
+        mLight = sensorManager.getDefaultSensor(type);
     }
 
 
@@ -33,9 +35,16 @@ public class Sensors implements SensorEventListener {
     public final void onSensorChanged(SensorEvent event) {
         // The light sensor returns a single value.
         // Many sensors return 3 values, one for each axis.
-        float lux = event.values[0];
-        sensorValue = lux;
+
+        sensorValue = ""+event.values[0];
         // Do something with this sensor value.
     }
 
+    public String getTitle() {
+        return sensorTitle;
+    }
+
+    public String getValue() {
+        return sensorValue;
+    }
 }
