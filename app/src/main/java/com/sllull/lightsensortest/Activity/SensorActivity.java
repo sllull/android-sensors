@@ -5,11 +5,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.sllull.lightsensortest.Fragments.SensorFragment;
 import com.sllull.lightsensortest.R;
 
-class SensorActivity extends AppCompatActivity {
+public class SensorActivity extends AppCompatActivity {
 
     private FragmentManager fm;
 
@@ -27,7 +28,5 @@ class SensorActivity extends AppCompatActivity {
             ft.add(R.id.sensor_list,sf);
             ft.commit();
         }
-
-       // new lskdfslkjf(getSys)
     }
 }

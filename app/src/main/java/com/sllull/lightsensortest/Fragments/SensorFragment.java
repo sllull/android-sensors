@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.RecyclerView;
-import android.widget.TextView;
 
 import com.sllull.lightsensortest.Adapters.SensorAdapter;
 import com.sllull.lightsensortest.Domain.Sensors;
@@ -40,7 +39,7 @@ public class SensorFragment extends Fragment {
 
     @Override
     public View onCreateView( LayoutInflater inflater,  ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_sensor,container,false);
+        View v = inflater.inflate(R.layout.sensor_item,container,false);
         sensorList = v.findViewById(R.id.sensor_list);
 
 
@@ -51,13 +50,14 @@ public class SensorFragment extends Fragment {
             dataset = prepareDummySensors();
         }
 
-        sensorAdapter = new SensorAdapter(dataset, getContext(),(SensorManager) getSystemService(Context.SENSOR_SERVICE));
-
+        sensorAdapter = new SensorAdapter(dataset, getContext(),(SensorManager) getContext().getSystemService(Context.SENSOR_SERVICE));
+        sensorList.setAdapter(sensorAdapter);
         return v;
     }
 
     private ArrayList<Sensors> prepareDummySensors() {
-        private ArrayList<Sensors> sensorsList;
-        sensorsList.add(new Sensors(Sensor.TYPE_LIGHT), (SensorManager) getSystemService(Context.SENSOR_SERVICE));
+        ArrayList<Sensors> sensorsList = null;
+        sensorsList.add(new Sensors(Sensor.TYPE_LIGHT, (SensorManager) getContext().getSystemService(Context.SENSOR_SERVICE)));
+        return sensorsList;
     }
 }
