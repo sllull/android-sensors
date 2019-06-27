@@ -17,33 +17,31 @@ import java.util.ArrayList;
 
 public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder> {
 
-    private ArrayList<Sensors> data;
-    private Context context;
-    private SensorManager sensorManager;
+    private ArrayList<Sensors> sensors;
 
-    public SensorAdapter (ArrayList<Sensors> data, Context context, SensorManager sensorManager){
-        this.data = data;
-        this.context =  context;
-        this.sensorManager = sensorManager;
+    public SensorAdapter (ArrayList<Sensors> sensors){
+        this.sensors = sensors;
     }
 
     @NonNull
     @Override
     public SensorAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.fragment_sensor, viewGroup, false);
-        return new ViewHolder(v);
+        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.sensor_item, viewGroup, false);
+
+        ViewHolder vh = new ViewHolder(v);
+        return vh;
 
     }
 
     @Override
     public void onBindViewHolder(@NonNull SensorAdapter.ViewHolder viewHolder, int i) {
-        Sensors sens = data.get(i);
-        viewHolder.setup(sens, context);
+        Sensors sens = sensors.get(i);
+        viewHolder.setup(sens);
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return sensors.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -59,7 +57,7 @@ public class SensorAdapter extends RecyclerView.Adapter<SensorAdapter.ViewHolder
 
         }
 
-        public void setup(final Sensors sens, final Context context) {
+        public void setup(final Sensors sens) {
             sensorTitle.setText(sens.getTitle());
             sensorValue.setText(sens.getValue());
 

@@ -12,39 +12,22 @@ import android.util.Log;
 import android.widget.TextView;
 
 
-public class Sensors implements SensorEventListener {
-    private SensorManager sensorManager;
-    private Sensor mLight;
-    private String sensorValue;
+public class Sensors  {
+    private int sensorValue;
     private String sensorTitle;
 
-    public Sensors (int type, SensorManager sensorManager){
+    public Sensors (int type, String title, int value){
         //type = Sensor.TYPE_LIGHT
         this.sensorTitle = " "+type;
-        this.sensorManager = sensorManager;
-        mLight = sensorManager.getDefaultSensor(type);
-    }
-
-
-    @Override
-    public final void onAccuracyChanged(Sensor sensor, int accuracy) {
-        // Do something here if sensor accuracy changes.
-    }
-
-    @Override
-    public final void onSensorChanged(SensorEvent event) {
-        // The light sensor returns a single value.
-        // Many sensors return 3 values, one for each axis.
-
-        sensorValue = ""+event.values[0];
-        // Do something with this sensor value.
+        this.sensorTitle = title;
+        this.sensorValue = value;
     }
 
     public String getTitle() {
         return sensorTitle;
     }
 
-    public String getValue() {
+    public int getValue() {
         return sensorValue;
     }
 }

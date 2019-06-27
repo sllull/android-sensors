@@ -4,4 +4,10 @@
     <string name="StartButton">Sensor start</string>
     <string name="titol_sensor">Titol Sensor</string>
     <string name="valor_sensor">valor_sensor</string>
+    <string name="Sensors">sensors</string>
+    <string name="blank">-</string>
+    <string name="lightSensorTitle">Light Sensor: </string>
+    <string name="accelerometerSensorTitle">Accelerometer Sensor: </string>
+    <string name="rotationsSensorTitle">Rotation Sensor: </string>
+    <string name="gyroscopeSensorTitle">Giroscope Sensor: </string>
 </resources>
