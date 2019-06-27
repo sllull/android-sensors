@@ -21,11 +21,11 @@ public class SensorActivity extends AppCompatActivity {
 
         this.fm = getSupportFragmentManager();
 
-        Fragment bf = this.fm.findFragmentById(R.id.sensor_list);
+        Fragment bf = this.fm.findFragmentById(R.id.sensor_list_fragment);
         if(bf == null){
             FragmentTransaction ft = this.fm.beginTransaction();
             SensorFragment sf = SensorFragment.newInstance();
-            ft.add(R.id.sensor_list,sf);
+            ft.add(R.id.sensor_list_fragment,sf);
             ft.commit();
         }
     }
