@@ -132,10 +132,6 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         }
     }
 
-    /**
-     * Abstract method in SensorEventListener.  It must be implemented, but is
-     * unused in this app.
-     */
     @Override
     public void onAccuracyChanged(Sensor sensor, int i) {
     }
